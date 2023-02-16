@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Editar alumno</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formulario">
+        <div class="row">
+            <input type="text" placeholder="Nombre" formControlName="nombre">
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Apellido" formControlName="apellido">
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Curso" formControlName="curso">
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button>Cerrar</button>
+    <button mat-flat-button>Editar</button>
+</div>

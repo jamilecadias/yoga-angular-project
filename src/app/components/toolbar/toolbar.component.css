@@ -1,0 +1,15 @@
+header{
+  display: flex;
+  justify-content: center;
+  background-color: #f7f7f7;
+}
+.toolbar{
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+
+}
+h1{
+  color: #b19cd9;
+  padding-top: 20px;
+}
