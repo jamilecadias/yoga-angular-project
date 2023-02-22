@@ -30,5 +30,23 @@ export class MaterialComponent {
     const dialogRef = this.dialog.open(EditarAlumnoDialogComponent, {
       data: alumno
     });
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log(result);
+
+      if(result.mode === 'editar'){
+
+      }
+    })
+  }
+  agregarAlumno(){
+    const emptyElement: Alumno ={
+      nombre: '',
+      apellido: '',
+      curso: ''
+    }
+    const dialogRef= this.dialog.open(EditarAlumnoDialogComponent,{data: emptyElement})
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log(result);
+    })
   }
 }

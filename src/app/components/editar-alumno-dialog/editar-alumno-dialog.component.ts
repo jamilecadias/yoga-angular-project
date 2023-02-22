@@ -21,5 +21,12 @@ formulario: FormGroup;
       curso: new FormControl(data.curso)
     });
   }
-}
 
+
+cerrar(){
+  this.dialogRef.close({modo: 'cerrar', ...this.data})
+}
+editar(){
+  this.dialogRef.close({modo: 'editar', ...this.data})
+}
+}
