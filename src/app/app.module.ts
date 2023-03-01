@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialComponent } from './components/material/material.component';
+import { AlumnosComponent } from './components/alumnos/alumnos.component';
 import { MaterialModule } from './material.module';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -13,7 +13,7 @@ import { EditarAlumnoDialogComponent } from './components/editar-alumno-dialog/e
 @NgModule({
   declarations: [
     AppComponent,
-    MaterialComponent,
+    AlumnosComponent,
     ToolbarComponent,
     NavbarComponent,
     FooterComponent,
