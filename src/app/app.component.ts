@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Curso } from './models/curso';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo';
+
+  constructor(
+    private router: Router
+  ){
+
+  }
+
+  redigirInicio(){
+    this.router.navigate(['inicio']);
+  }
 }
