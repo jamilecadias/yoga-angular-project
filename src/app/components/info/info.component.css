@@ -1,0 +1,27 @@
+h2{
+  color: #b19cd9;
+}
+h3, .title{
+  color: #440c53;
+}
+section{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f7f7f7;
+  padding-left: 100px;
+  padding-right: 80px;
+}
+article{
+  width: 2000px;
+  margin: 20px;
+  padding: 30px;
+  color:#b19cd9 ;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  background-color: #f7f7f7;
+  padding-top: 50px;
+  margin: 0px;
+
+}
