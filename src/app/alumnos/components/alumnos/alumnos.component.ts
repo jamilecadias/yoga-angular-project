@@ -5,7 +5,7 @@ import { Alumno } from 'src/app/models/alumno';
 import { EditarAlumnoDialogComponent } from '../editar-alumno-dialog/editar-alumno-dialog.component';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs';
-import { AlumnoService } from 'src/app/services/alumno.service';
+import { AlumnoService } from 'src/app/alumnos/services/alumno.service';
 
 @Component({
   selector: 'app-alumnos',

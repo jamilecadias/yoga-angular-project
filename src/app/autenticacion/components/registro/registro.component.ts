@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class LoginComponent {
-  formularioLogin: FormGroup;
+export class RegistroComponent {
+  formularioRegistro: FormGroup;
 
   constructor(){
     let regexCorreo: string = '^[a-z]+@[a-z]+\\.[a-z]{2,3}$';
@@ -16,17 +16,13 @@ export class LoginComponent {
       contrasena: new FormControl('jcd12345', [Validators.required, Validators.minLength(5)]),
       recordarCredenciales: new FormControl(true)
     }
-    this.formularioLogin = new FormGroup(controles);
+    this.formularioRegistro = new FormGroup(controles);
   }
 
   login(){
-    console.log(this.formularioLogin);
-    if(this.formularioLogin.controls['correo'].errors?.['pattern']){
+    console.log(this.formularioRegistro);
+    if(this.formularioRegistro.controls['correo'].errors?.['pattern']){
       console.log("Hubo un error en el formato del correo");
     }
-
-    /* if(this.formularioLogin.controls['correo'].errors?.['required']){
-      console.log("El correo es obligatorio");
-    } */
   }
 }

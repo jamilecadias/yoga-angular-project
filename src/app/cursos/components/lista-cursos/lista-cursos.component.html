@@ -12,12 +12,14 @@
                   <p>{{ curso.inscripcionAbierta }}</p>
               </mat-card-content>
               <mat-card-actions align="end">
-                  <button mat-raised-button color="primary" (click)="redirigirEditarCurso(curso)">
-                      Editar
-                  </button>
-                  <button mat-button color="warn" (click)="eliminarCurso(curso)">
-                      Eliminar
-                  </button>
+                <ng-container *ngIf="sesion$ | async as sesion">
+                    <button *ngIf="sesion.usuarioActivo?.esAdmin" mat-raised-button color="primary" (click)="abrirDialog(curso)">
+                        Editar
+                    </button>
+                    <button *ngIf="sesion.usuarioActivo?.esAdmin" mat-button color="warn" (click)="eliminarCurso(curso)">
+                        Eliminar
+                    </button>
+                </ng-container>
               </mat-card-actions>
           </mat-card>
       </div>
