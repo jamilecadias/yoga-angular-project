@@ -16,7 +16,7 @@ formulario: FormGroup;
     @Inject(MAT_DIALOG_DATA) public data: Alumno
   ){
     this.formulario = new FormGroup({
-      nombre: new FormControl(data.nombre === 'Angular' ? 'Este es angular' : data.nombre),
+      nombre: new FormControl(data.nombre === 'Pedro' ? 'Este es Pedro' : data.nombre),
       apellido: new FormControl(data.apellido),
       curso: new FormControl(data.curso)
     });

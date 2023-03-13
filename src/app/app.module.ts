@@ -20,8 +20,8 @@ import { AutenticacionModule } from './autenticacion/autenticacion.module';
     ToolbarComponent,
     NavbarComponent,
     FooterComponent
-    
-    
+
+
   ],
   imports: [
     BrowserModule,

@@ -14,10 +14,10 @@ import { AlumnoService } from 'src/app/alumnos/services/alumno.service';
 })
 export class AlumnosComponent implements OnInit, OnDestroy {
   alumnos: Alumno[] = [
-    {nombre: 'Mariana', apellido: 'Martínez', curso: 'Hatha Yoga'},
-    {nombre: 'Pedro', apellido: 'Pérez', curso: 'Vinyasa Yoga'},
-    {nombre: 'Catarina', apellido: 'Rodríguez', curso: 'Yoga para embarazadas'},
-    {nombre: 'Lucas', apellido: 'Fernández', curso: 'Ashtanga Vinyasa Yoga'},
+    {id:'2', nombre: 'Mariana', apellido: 'Martínez', fechaNac: new Date, curso: 'Hatha Yoga'},
+    {id:'3', nombre: 'Pedro', apellido: 'Pérez', fechaNac: new Date, curso: 'Vinyasa Yoga'},
+    {id:'4', nombre: 'Catarina', apellido: 'Rodríguez', fechaNac: new Date, curso: 'Yoga para embarazadas'},
+    {id:'5', nombre: 'Lucas', apellido: 'Fernández', fechaNac: new Date, curso: 'Ashtanga Vinyasa Yoga'},
   ];
   alumnos$!: Observable<Alumno[]>;
 
@@ -49,9 +49,11 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   }
   agregarAlumno(){
     const emptyElement: Alumno ={
+      id: '',
       nombre: '',
       apellido: '',
-      curso: ''
+      curso: '',
+      fechaNac: new Date(2022, 2, 15)
     }
     const dialogRef= this.dialog.open(EditarAlumnoDialogComponent,{data: emptyElement})
     dialogRef.afterClosed().subscribe(result =>{

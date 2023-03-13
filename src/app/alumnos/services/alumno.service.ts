@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Alumno } from "src/app/models/alumno";
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -7,15 +8,15 @@ import { filter, from, interval, map, mergeMap, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AlumnoService {
-  obtenerAlumnos() {
+  /* obtenerAlumnos() {
     throw new Error('Method not implemented.');
-  }
+  } */
 
   private alumnos: Alumno[]=[
-    {nombre: 'Mariana', apellido: 'Martínez', curso: 'Hatha Yoga'},
-    {nombre: 'Pedro', apellido: 'Pérez', curso: 'Vinyasa Yoga'},
-    {nombre: 'Catarina', apellido: 'Rodríguez', curso: 'Yoga para embarazadas'},
-    {nombre: 'Lucas', apellido: 'Fernández', curso: 'Ashtanga Vinyasa Yoga'},
+    {id:'2', nombre: 'Mariana', apellido: 'Martínez', fechaNac: new Date, curso: 'Hatha Yoga'},
+    {id:'3', nombre: 'Pedro', apellido: 'Pérez', fechaNac: new Date, curso: 'Vinyasa Yoga'},
+    {id:'4', nombre: 'Catarina', apellido: 'Rodríguez', fechaNac: new Date, curso: 'Yoga para embarazadas'},
+    {id:'5', nombre: 'Lucas', apellido: 'Fernández', fechaNac: new Date, curso: 'Ashtanga Vinyasa Yoga'},
   ];
 
   getAlumno(){
@@ -25,8 +26,9 @@ export class AlumnoService {
   private alumnos$!: BehaviorSubject<Alumno[]>;
 
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.alumnos$ = new BehaviorSubject(this.alumnos);
+
 
     of(this.alumnos).pipe(
       map((alumnos: Alumno[]) => {
@@ -64,12 +66,16 @@ export class AlumnoService {
     return this.alumnos$.asObservable();
   }
 
-  agregarAlumno(alumno: Alumno){
+  obtenerAlumnos(): Observable<Alumno[]>{
+    return this.http.get<Alumno[]>('https://6407c9642f01352a8a83d845.mockapi.io/alumnos');
+
+  /*a gregarAlumno(alumno: Alumno){
     this.alumnos.unshift(alumno);
     this.alumnos$.next(this.alumnos);
     console.log('Alumno agregado', this.alumnos);
-  }
+  } */
 
 
 
+}
 }
