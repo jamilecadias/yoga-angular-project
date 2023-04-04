@@ -1,7 +1,7 @@
 {
   "usuarios":[
-      {"usuario": "jamile", "contrasena": "123456", "esAdmin": true},
-      {"usuario": "jonas", "contrasena": "123456", "esAdmin": false}
+      {"usuario": "jamile@gmail.com", "contrasena": "123456", "esAdmin": true},
+      {"usuario": "jonas@gmail.com", "contrasena": "123456", "esAdmin": false}
   ]
 
 

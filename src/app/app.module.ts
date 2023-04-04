@@ -16,13 +16,15 @@ import { AutenticacionModule } from './autenticacion/autenticacion.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { ProfesoresComponent } from './components/profesores/profesores.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProfesoresComponent
 
 
   ],
