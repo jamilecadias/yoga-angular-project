@@ -1,27 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { SesionService } from './core/services/sesion.service';
-import { Curso } from './models/curso';
+import { AuthState } from './autenticacion/state/auth.reducer';
+import { selectSesionActiva, selectUsuarioActivo } from './autenticacion/state/auth.selectors';
 import { Sesion } from './models/sesion';
-
+import { Usuario } from './models/usuario';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'demo';
-  sesion$!: Observable<Sesion>;
+  sesionActiva$!: Observable<Boolean>;
+  usuarioActivo$!: Observable<Usuario | undefined>;
 
   constructor(
     private router: Router,
-    private sesion: SesionService
+    private authStore: Store<AuthState>
   ){}
 
   ngOnInit(): void {
-    this.sesion$ = this.sesion.obtenerSesion();
+    this.sesionActiva$ = this.authStore.select(selectSesionActiva);
+    this.usuarioActivo$ = this.authStore.select(selectUsuarioActivo);
   }
 
   redigirInicio(){
@@ -33,7 +36,7 @@ export class AppComponent {
       sesionActiva: false,
       usuarioActivo: undefined
     }
-    this.sesion.logout(sesionLogout);
+    // this.sesion.logout(sesionLogout);
     this.router.navigate(['auth/login']);
   }
 }

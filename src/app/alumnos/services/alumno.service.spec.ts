@@ -28,6 +28,7 @@ describe('AlumnoService', () => {
       {
        "nombre": "Alberto",
        "apellido": "Paz",
+       "email": "alberto@gmail.com",
        "fechaNac": fechaPrueba,
        "curso": "Bikham Yoga",
        "id": "1"
@@ -35,6 +36,7 @@ describe('AlumnoService', () => {
       {
        "nombre": "Barbara",
        "apellido": "Campos",
+       "email": "barbara@gmail.com",
        "fechaNac": fechaPrueba,
        "curso": "Yoga para embarazadas",
        "id": "3"
@@ -50,20 +52,3 @@ describe('AlumnoService', () => {
   })
 });
 
-/* import { TestBed } from '@angular/core/testing';
-
-import { AlumnoService } from './alumno.service';
-
-describe('AlumnoService', () => {
-  let service: AlumnoService;
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AlumnoService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
- */

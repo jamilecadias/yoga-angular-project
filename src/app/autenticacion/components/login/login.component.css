@@ -1,23 +1,20 @@
-form{
-  margin: 50px;
+h1{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  color: #673ab7;
 
 }
-
-h3{
-  padding-bottom: 20px;
+.row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button{
   display: flex;
   justify-content: center;
 }
 
-
-.valido{
-  color: rgb(0, 95, 0);
-}
-
-.invalido{
-  color: rgb(127, 0, 0);
-}
-
-.registrate{
-  margin-left: 50px;
+.fill{
+  width: 400px;
 }

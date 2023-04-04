@@ -1,0 +1,23 @@
+h1{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  color: #673ab7;
+}
+
+p, h3{
+  margin-left: 30px;
+}
+.row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button{
+  display: flex;
+  justify-content: center;
+}
+
+.fill{
+  width: 400px;
+}

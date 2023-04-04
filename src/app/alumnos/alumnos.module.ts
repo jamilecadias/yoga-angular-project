@@ -7,7 +7,7 @@ import { AlumnosRoutingModule } from './alumnos-routing.module';
 import { AlumnoService } from './services/alumno.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
-import { AlumnoOtherService } from './services/alumno-other.service';
+/* import { AlumnoOtherService } from './services/alumno-other.service'; */
 
 
 
@@ -16,7 +16,7 @@ import { AlumnoOtherService } from './services/alumno-other.service';
     AlumnosComponent,
     AgregarAlumnoComponent,
     EditarAlumnoDialogComponent,
-    
+
   ],
   imports: [
     CommonModule,
@@ -25,8 +25,8 @@ import { AlumnoOtherService } from './services/alumno-other.service';
     ReactiveFormsModule
   ],
   providers: [
-    AlumnoService,
-    AlumnoOtherService
+    AlumnoService
+   /*  AlumnoOtherService */
   ]
 })
 export class AlumnosModule { }

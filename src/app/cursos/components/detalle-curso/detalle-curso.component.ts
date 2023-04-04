@@ -15,7 +15,7 @@ export class DetalleCursoComponent implements OnInit {
 
   ngOnInit(){
     this.route.queryParamMap.subscribe((parametros) => {
-      console.log(parametros);
+    
     })
   }
 }

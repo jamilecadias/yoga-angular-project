@@ -11,6 +11,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSlideToggleModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
   ],
   exports: [
     MatCardModule,
@@ -39,7 +43,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSlideToggleModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule
+
   ]
 })
 export class MaterialModule { }

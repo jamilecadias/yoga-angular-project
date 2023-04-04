@@ -1,4 +1,4 @@
-import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
+/* import { FullscreenOverlayContainer } from '@angular/cdk/overlay'; */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InfoComponent } from './core/components/info/info.component';
@@ -15,21 +15,21 @@ const routes: Routes = [
     {path: 'info', component: InfoComponent}
   ]},
 
-  {path: 'cursos', 
+  {path: 'cursos',
   loadChildren: () => import('./cursos/cursos.module').then((modulo) => modulo.CursosModule),
   canLoad: [SesionGuard]
 },
 
-{path: 'alumnos', 
+{path: 'alumnos',
   loadChildren: () => import('./alumnos/alumnos.module').then((modulo) => modulo.AlumnosModule),
   canLoad: [SesionGuard]
-  
+
 },
 {
   path: 'auth',
   loadChildren: () => import('./autenticacion/autenticacion.module').then((modulo) => modulo.AutenticacionModule)
 },
-  
+
   {path:'**', component: NoEncontradoComponent}
 
 ]

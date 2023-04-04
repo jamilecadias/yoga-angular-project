@@ -14,15 +14,15 @@ import { AlumnoService } from 'src/app/alumnos/services/alumno.service';
 })
 export class AlumnosComponent implements OnInit, OnDestroy {
   alumnos: Alumno[] = [
-    {id:'2', nombre: 'Mariana', apellido: 'Martínez', fechaNac: new Date, curso: 'Hatha Yoga'},
-    {id:'3', nombre: 'Pedro', apellido: 'Pérez', fechaNac: new Date, curso: 'Vinyasa Yoga'},
-    {id:'4', nombre: 'Catarina', apellido: 'Rodríguez', fechaNac: new Date, curso: 'Yoga para embarazadas'},
-    {id:'5', nombre: 'Lucas', apellido: 'Fernández', fechaNac: new Date, curso: 'Ashtanga Vinyasa Yoga'},
+    {id:'2', nombre: 'Mariana', apellido: 'Martínez', email:'mariana@gmail.com', fechaNac: new Date, curso: 'Hatha Yoga'},
+    {id:'3', nombre: 'Pedro', apellido: 'Pérez', email:'pedro@gmail.com',fechaNac: new Date, curso: 'Vinyasa Yoga'},
+    {id:'4', nombre: 'Catarina', apellido: 'Rodríguez', email:'catarina@gmail.com',fechaNac: new Date, curso: 'Yoga para embarazadas'},
+    {id:'5', nombre: 'Lucas', apellido: 'Fernández', email:'lucas@gmail.com',fechaNac: new Date, curso: 'Ashtanga Vinyasa Yoga'},
   ];
   alumnos$!: Observable<Alumno[]>;
 
   dataSource: MatTableDataSource<Alumno> = new MatTableDataSource<Alumno>(this.alumnos);
-  columnas: string[] = ['nombre', 'apellido', 'curso', 'acciones'];
+  columnas: string[] = ['nombre', 'apellido', 'email', 'curso', 'acciones'];
   alumno!: Alumno;
 
   suscripcion!: Subscription;
@@ -39,8 +39,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     const dialogRef = this.dialog.open(EditarAlumnoDialogComponent, {
       data: alumno
     });
-    dialogRef.afterClosed().subscribe(result =>{
-      console.log(result);
+    dialogRef.afterClosed().subscribe(result =>{(result);
 
       if(result.mode === 'editar'){
 
@@ -52,24 +51,21 @@ export class AlumnosComponent implements OnInit, OnDestroy {
       id: '',
       nombre: '',
       apellido: '',
+      email: '',
       curso: '',
       fechaNac: new Date(2022, 2, 15)
     }
     const dialogRef= this.dialog.open(EditarAlumnoDialogComponent,{data: emptyElement})
-    dialogRef.afterClosed().subscribe(result =>{
-      console.log(result);
+    dialogRef.afterClosed().subscribe(result =>{(result);
     })
   }
 
   ngOnInit(): void {
 
-    // console.log("Instanciando MatTAbleDataSource");
     this.dataSource = new MatTableDataSource<Alumno>();
     this.suscripcion = this._alumnoService.obtenerAlumnosObservable().subscribe((alumnos: Alumno[]) => {
-      // console.log("Agregando datos al MatTAbleDataSource");
       this.dataSource.data = alumnos;
     });
-    // console.log("Ultima linea del ngOnInit");
     this.alumnos$ = this._alumnoService.obtenerAlumnosObservable();
   }
 

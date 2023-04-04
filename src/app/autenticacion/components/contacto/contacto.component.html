@@ -1,0 +1,44 @@
+<h1>Contacto</h1>
+<p>Envianos un mensaje de WhatsApp al  (+54) 9 234 567 88. Dejá un mensaje con tus datos Nombre y dirección de mail y a la brevedad nos pondremos en contacto!
+
+ Envianos un email:</p>
+
+ <form [formGroup]="formularioContacto" (ngSubmit)="contacto()">
+  <div class="row">
+      <div class="col-md-3">
+          <mat-form-field appearance="outline" class="fill">
+              <mat-label>Nombre y apellido (requerido)</mat-label>
+              <input matInput type="text" formControlName="nombre">
+          </mat-form-field>
+      </div>
+      <div class="col-md-3">
+          <mat-form-field appearance="outline" class="fill">
+              <mat-label>Email (requerido)</mat-label>
+              <input matInput type="email" formControlName="email">
+          </mat-form-field>
+      </div>
+      <div class="col-md-2">
+        <mat-slide-toggle formControlName="infoEmail">Deseo recibir notificaciones por email</mat-slide-toggle>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field appearance="outline" class="fill">
+          <mat-label>Teléfono (requerido)</mat-label>
+          <input matInput type="tel" formControlName="telefono">
+      </mat-form-field>
+  </div>
+      <div class="col-md-2">
+          <mat-slide-toggle formControlName="infoWhats">Deseo recibir notificaciones por WhatsApp</mat-slide-toggle>
+      </div>
+      <div class="col-md-3">
+        <mat-form-field appearance="outline" class="fill">
+            <mat-label>Mensaje</mat-label>
+            <input matInput type="textarea" formControlName="menasaje">
+        </mat-form-field>
+    </div>
+      <br>
+      <br>
+      <div class="col-md-2" class="button">
+          <button type="submit" mat-raised-button color="primary">Enviar</button>
+      </div>
+  </div>
+</form>

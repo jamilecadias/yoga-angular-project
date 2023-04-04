@@ -1,20 +1,19 @@
-<ng-container *ngIf="sesion$ | async as sesion">
-<mat-toolbar>
- <img src="/assets/images.png" alt="logo" width="100" height="80">
-  <h1 class="toolbar">Espacio Zen</h1>
+<app-toolbar></app-toolbar>
+<app-navbar></app-navbar>
+<ng-container *ngIf="sesionActiva$ | async">
+<mat-toolbar> <!-- color="primary" *ngIf="sesion.sesionActiva" -->
   <span class="example-spacer"></span>
  <button mat-button (click)="redigirInicio()">Inicio</button>
-  <a mat-button routerLink="auth/login">login</a>
-  <a mat-button routerLink="auth/registro">Registro</a>
   <a mat-button routerLink="alumnos/alumnos">Alumnos</a>
   <a mat-button routerLink="cursos/listar">Listar Cursos</a>
   <a mat-button routerLink="cursos/tabla">Cursos</a>
-  <a mat-button routerLink="cursos/agregar" *ngIf="sesion.usuarioActivo?.esAdmin">Agregar Curso</a>
-  <a mat-button routerLink="alumnos/agregar" *ngIf="sesion.usuarioActivo?.esAdmin">Agregar Alumno</a>
+  <a mat-button routerLink="cursos/agregar">Agregar Curso</a>
+  <a mat-button routerLink="alumnos/agregar">Agregar Alumno</a>
+ <!--  <a mat-button routerLink="cursos/agregar" *ngIf="(usuarioActivo$ | async)?.esAdmin">Agregar Curso</a>
+  <a mat-button routerLink="alumnos/agregar" *ngIf="(usuarioActivo$ | async)?.esAdmin">Agregar Alumno</a> -->
   <a mat-button (click)="logout()">Logut</a>
 </mat-toolbar>
 </ng-container>
-<app-navbar></app-navbar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 

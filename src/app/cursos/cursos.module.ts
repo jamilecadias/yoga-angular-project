@@ -9,8 +9,11 @@ import { CursosRountingModule } from './cursos-routing.module';
 import { CursosService } from './services/cursos.service';
 import { TablaCursosComponent } from './components/tabla-cursos/tabla-cursos.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { StoreModule } from '@ngrx/store';
+import { cursoStateFeatureKey, reducer } from './state/curso-state.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CursosEffects } from './state/curso-state.effects';
+import { CursosInicioComponent } from './components/cursos-inicio/cursos-inicio.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     DetalleCursoComponent,
     ListaCursosComponent,
     EditarCursoComponent,
-    TablaCursosComponent
+    TablaCursosComponent,
+    CursosInicioComponent,
   ],
   imports: [
     CommonModule,
     CursosRountingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule ,
+    StoreModule.forFeature(cursoStateFeatureKey, reducer),
+    EffectsModule.forFeature([CursosEffects])
   ],
   providers: [
     CursosService

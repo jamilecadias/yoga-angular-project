@@ -8,15 +8,12 @@ import { filter, from, interval, map, mergeMap, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AlumnoService {
-  /* obtenerAlumnos() {
-    throw new Error('Method not implemented.');
-  } */
-
+ 
   private alumnos: Alumno[]=[
-    {id:'2', nombre: 'Mariana', apellido: 'Martínez', fechaNac: new Date, curso: 'Hatha Yoga'},
-    {id:'3', nombre: 'Pedro', apellido: 'Pérez', fechaNac: new Date, curso: 'Vinyasa Yoga'},
-    {id:'4', nombre: 'Catarina', apellido: 'Rodríguez', fechaNac: new Date, curso: 'Yoga para embarazadas'},
-    {id:'5', nombre: 'Lucas', apellido: 'Fernández', fechaNac: new Date, curso: 'Ashtanga Vinyasa Yoga'},
+    {id:'2', nombre: 'Mariana', apellido: 'Martínez', email:'mariana@gmail.com', fechaNac: new Date, curso: 'Hatha Yoga'},
+    {id:'3', nombre: 'Pedro', apellido: 'Pérez', email:'pedro@gmail.com',fechaNac: new Date, curso: 'Vinyasa Yoga'},
+    {id:'4', nombre: 'Catarina', apellido: 'Rodríguez', email:'catarina@gmail.com',fechaNac: new Date, curso: 'Yoga para embarazadas'},
+    {id:'5', nombre: 'Lucas', apellido: 'Fernández', email:'lucas@gmail.com',fechaNac: new Date, curso: 'Ashtanga Vinyasa Yoga'},
   ];
 
   getAlumno(){
@@ -35,7 +32,7 @@ export class AlumnoService {
         return alumnos.filter((alumno: Alumno) => alumno.curso == 'Hatha Yoga')
       })
     ).subscribe((alumnos)=>{
-      console.log("Obtenido desde el of, filtrado por curso de alumno ", alumnos);
+      (alumnos);
     });
 
     of(this.alumnos).pipe(
@@ -44,11 +41,12 @@ export class AlumnoService {
           return {
             nombre: alumnos[i].nombre,
             apellido: alumnos[i].apellido,
+            email: alumnos[i].email,
             estatus: alumnos[i].curso
           }
         })));
       })
-    ).subscribe((datos) => console.log('Utilizando mergeMap', datos));
+    ).subscribe((datos) => (datos));
 
    }
 
@@ -68,14 +66,5 @@ export class AlumnoService {
 
   obtenerAlumnos(): Observable<Alumno[]>{
     return this.http.get<Alumno[]>('https://6407c9642f01352a8a83d845.mockapi.io/alumnos');
-
-  /*a gregarAlumno(alumno: Alumno){
-    this.alumnos.unshift(alumno);
-    this.alumnos$.next(this.alumnos);
-    console.log('Alumno agregado', this.alumnos);
-  } */
-
-
-
 }
 }

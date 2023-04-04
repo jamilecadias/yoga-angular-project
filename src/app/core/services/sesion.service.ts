@@ -7,7 +7,7 @@ import { Sesion } from 'src/app/models/sesion';
 })
 export class SesionService {
   sesion$!: BehaviorSubject<Sesion>
-  
+
   constructor(){
     let sesion: Sesion = {
       sesionActiva: false
@@ -17,7 +17,6 @@ export class SesionService {
   }
 
   crearSesion(sesion: Sesion){
-    console.log('Creando sesion con el objeto', sesion);
     this.sesion$.next(sesion);
   }
 

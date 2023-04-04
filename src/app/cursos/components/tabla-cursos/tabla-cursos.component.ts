@@ -21,13 +21,11 @@ export class TablaCursosComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log("Instanciando MatTAbleDataSource");
     this.dataSource = new MatTableDataSource<Curso>();
     this.suscripcion = this.cursoService.obtenerCursos().subscribe((cursos: Curso[]) => {
-      console.log("Agregando datos al MatTAbleDataSource");
       this.dataSource.data = cursos;
     });
-    console.log("Ultima linea del ngOnInit");
+    ;
   }
 
   ngOnDestroy(){

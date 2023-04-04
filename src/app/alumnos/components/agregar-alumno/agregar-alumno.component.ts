@@ -26,30 +26,22 @@ export class AgregarAlumnoComponent implements OnInit{
     this.formulario = new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       apellido: new FormControl(),
+      email: new FormControl(),
       fechaNac: new FormControl(),
       curso: new FormControl()
     })
   }
 
   agregarAlumno(){
-    console.log(this.formulario.value);
+    (this.formulario.value);
     let alumno: Alumno = {
       id: '1',
       nombre: this.formulario.value.nombre,
       apellido: this.formulario.value.apellido,
+      email: this.formulario.value.email,
       fechaNac: this.formulario.value.fechaNac,
       curso: this.formulario.value.curso,
     }
     this.alumnos.push(alumno);
   }
 }
-/* export class AgregarAlumnoComponent {
-formulario: FormGroup<any>;
-agregarAlumno() {
-throw new Error('Method not implemented.');
-}
-fechaNac: MatDatepickerPanel<MatDatepickerControl<any>,any,any>;
-alumnos: any;
-
-}
- */

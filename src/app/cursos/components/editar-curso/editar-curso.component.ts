@@ -2,11 +2,14 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ProfesorService } from 'src/app/core/services/profesor.service';
 import { Curso } from 'src/app/models/curso';
 import { Profesor } from 'src/app/models/profesor';
 import { CursosService } from '../../services/cursos.service';
+import { editarCursoState } from '../../state/curso-state.actions';
+import { CursoState } from '../../state/curso-state.reducer';
 
 @Component({
   selector: 'app-editar-curso',
@@ -22,6 +25,7 @@ export class EditarCursoComponent implements OnInit{
     private router: Router,
     private profesores: ProfesorService,
     private dialogRef: MatDialogRef<EditarCursoComponent>,
+    private store: Store<CursoState>,
     @Inject(MAT_DIALOG_DATA) public curso: Curso
   ){}
 
@@ -48,8 +52,8 @@ export class EditarCursoComponent implements OnInit{
       profesor: this.formulario.value.profesor
     };
 
-    this.cursoService.editarCurso(curso).subscribe((curso: Curso) => {
-      this.dialogRef.close(curso);
-    });
+    this.store.dispatch(editarCursoState({curso: curso}));
+    this.dialogRef.close(curso);
   }
 }
+

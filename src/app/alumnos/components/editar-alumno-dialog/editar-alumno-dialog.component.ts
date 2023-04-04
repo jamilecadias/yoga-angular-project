@@ -18,6 +18,7 @@ formulario: FormGroup;
     this.formulario = new FormGroup({
       nombre: new FormControl(data.nombre === 'Pedro' ? 'Este es Pedro' : data.nombre),
       apellido: new FormControl(data.apellido),
+      email: new FormControl(data.email),
       curso: new FormControl(data.curso)
     });
   }
