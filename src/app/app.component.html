@@ -6,10 +6,6 @@
  <button mat-button (click)="redigirInicio()">Inicio</button>
   <a mat-button routerLink="alumnos/alumnos">Alumnos</a>
   <a mat-button routerLink="cursos/listar">Cursos</a>
-  <a mat-button routerLink="cursos/agregar">Agregar Curso</a>
-  <a mat-button routerLink="alumnos/agregar">Agregar Alumno</a>
- <!--  <a mat-button routerLink="cursos/agregar" *ngIf="(usuarioActivo$ | async)?.esAdmin">Agregar Curso</a>
-  <a mat-button routerLink="alumnos/agregar" *ngIf="(usuarioActivo$ | async)?.esAdmin">Agregar Alumno</a> -->
   <a mat-button (click)="logout()">Logut</a>
 </mat-toolbar>
 </ng-container>

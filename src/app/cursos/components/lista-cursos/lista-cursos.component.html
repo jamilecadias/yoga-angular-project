@@ -22,7 +22,7 @@
                     <button mat-raised-button color="primary" (click)="abrirDialog(curso)">
                         Editar
                     </button>
-                    <button mat-button color="warn" (click)="eliminarCurso(curso)">
+                    <button mat-raised-button color="warn" (click)="eliminarCurso(curso)">
                         Eliminar
                         <!-- <button *ngIf="sesion.usuarioActivo?.esAdmin" mat-raised-button color="primary" (click)="abrirDialog(curso)">
                           Editar
@@ -36,3 +36,7 @@
       </div>
   </div>
 </div>
+<br>
+    <div class="agregar">
+        <button mat-flat-button color="primary" routerLink="/cursos/agregar" style="margin-top: 20px;">Agregar curso</button>
+                </div>
