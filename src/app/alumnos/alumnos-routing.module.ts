@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminGuard } from '../core/guards/admin.guard';
+import { SesionGuard } from '../core/guards/sesion.guard';
 import { AgregarAlumnoComponent } from './components/agregar-alumno/agregar-alumno.component';
-import { EditarAlumnoDialogComponent } from './components/editar-alumno-dialog/editar-alumno-dialog.component';
-import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { EditarAlumnoComponent } from './components/editar-alumno/editar-alumno.component';
+import { ListaAlumnosComponent } from './components/lista-alumnos/lista-alumnos.component';
 
 
 const routes: Routes = [
-  { path: '', children: [
-    { path: 'alumnos', component: AlumnosComponent },
-    { path: 'editar', component: EditarAlumnoDialogComponent },
-    { path: 'agregar', component: AgregarAlumnoComponent },
-    
+    { path: '', canActivateChild: [SesionGuard],children: [
+    { path: 'listar', component: ListaAlumnosComponent },
+    { path: 'editar', component: EditarAlumnoComponent, canActivate: [] },
+    { path: 'agregar', component: AgregarAlumnoComponent, canActivate: [] },
+
   ]}
 ];
 
@@ -19,3 +21,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AlumnosRoutingModule { }
+
+

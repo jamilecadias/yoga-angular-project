@@ -1,8 +1,11 @@
+import { Curso } from "./curso";
+
 export interface Alumno{
     id: string,
     nombre: string;
-    apellido: string;
     email: string;
     fechaNac: Date;
-    curso: string;
+    curso: Curso;
+    alumnoActivo: boolean;
 }
+

@@ -4,12 +4,6 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
-
-/* import { LoginService } from '../../services/login.service'; */
-
-
-
-
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
@@ -20,7 +14,6 @@ export class ContactoComponent implements OnInit, OnDestroy {
   suscripcion!: Subscription;
 
   constructor(
-    /* private loginService: LoginService,*/
     private router: Router,
     private formBuilder: FormBuilder,
 

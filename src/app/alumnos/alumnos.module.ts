@@ -1,32 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AgregarAlumnoComponent } from './components/agregar-alumno/agregar-alumno.component';
-import { EditarAlumnoDialogComponent } from './components/editar-alumno-dialog/editar-alumno-dialog.component';
+import { ListaAlumnosComponent } from './components/lista-alumnos/lista-alumnos.component';
+import { EditarAlumnoComponent } from './components/editar-alumno/editar-alumno.component';
 import { MaterialModule } from '../material.module';
 import { AlumnosRoutingModule } from './alumnos-routing.module';
-import { AlumnoService } from './services/alumno.service';
+import { AlumnosService } from './services/alumnos.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AlumnosComponent } from './components/alumnos/alumnos.component';
-/* import { AlumnoOtherService } from './services/alumno-other.service'; */
-
+import { StoreModule } from '@ngrx/store';
+import { alumnoStateFeatureKey, reducer } from './state/alumno-state.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AlumnosEffects } from './state/alumno-state.effects';
 
 
 @NgModule({
   declarations: [
-    AlumnosComponent,
     AgregarAlumnoComponent,
-    EditarAlumnoDialogComponent,
+    ListaAlumnosComponent,
+    EditarAlumnoComponent,
 
   ],
   imports: [
     CommonModule,
     AlumnosRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule ,
+    StoreModule.forFeature(alumnoStateFeatureKey, reducer),
+    EffectsModule.forFeature([AlumnosEffects])
   ],
   providers: [
-    AlumnoService
-   /*  AlumnoOtherService */
+    AlumnosService
   ]
 })
 export class AlumnosModule { }
+

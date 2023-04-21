@@ -1,4 +1,3 @@
-/* import { FullscreenOverlayContainer } from '@angular/cdk/overlay'; */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InfoComponent } from './core/components/info/info.component';
@@ -9,7 +8,7 @@ import { SesionGuard } from './core/guards/sesion.guard';
 
 
 const routes: Routes = [
-  {path: 'inicio', component: InicioComponent /* canActivate: [SesionGuard] */},
+  {path: 'inicio', component: InicioComponent},
   {path: '', redirectTo: 'inicio', pathMatch: 'full'},
   {path: 'inicio', children: [
     {path: 'info', component: InfoComponent}

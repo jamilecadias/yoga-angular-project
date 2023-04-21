@@ -1,16 +1,11 @@
-.card-imagen{
-  width: 100%;
-}
-
-h2{
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  color: #673ab7;
-
-}
 .agregar{
   display: flex;
   justify-content: center;
 
+}
+h1{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  color: #673ab7;
 }

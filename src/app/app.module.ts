@@ -40,7 +40,7 @@ import { ProfesoresComponent } from './components/profesores/profesores.componen
     CoreModule,
     AlumnosModule,
     AutenticacionModule,
-   StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([])
   ],

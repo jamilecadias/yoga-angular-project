@@ -1,0 +1,38 @@
+<h1>Alumnos</h1>
+<div class="container">
+  <div class="row" *ngIf="cargando$ | async">
+      <div class="col-md-12">
+          <mat-spinner></mat-spinner>
+      </div>
+  </div>
+  <div class="row" *ngIf="!(cargando$ | async)">
+      <div class="col-md-3" *ngFor="let alumno of alumnos$ | async">
+          <mat-card>
+              <mat-card-header>
+                  <mat-card-title>{{ alumno.nombre | uppercase }}</mat-card-title>
+                  <mat-card-subtitle>{{ alumno.email }}</mat-card-subtitle>
+              </mat-card-header>
+              <img class="card-imagen" mat-card-image src="../assets/yoga.jpeg" alt="">
+              <mat-card-content>
+                  <p>Inscripto en: {{ alumno.curso.nombre }}</p>
+                  <p>{{ alumno.alumnoActivo ? "Alumno activo": "Alumno activo"}}</p>
+              </mat-card-content>
+              <mat-card-actions align="end">
+                  <ng-container>
+                    <button mat-raised-button color="primary" (click)="abrirDialog(alumno)">
+                        Editar
+                    </button>
+                    <button mat-raised-button color="warn" (click)="eliminarAlumno(alumno)">
+                        Eliminar
+                    </button>
+                </ng-container>
+              </mat-card-actions>
+          </mat-card>
+      </div>
+  </div>
+</div>
+<br>
+    <div class="agregar">
+        <button mat-flat-button color="primary" routerLink="/alumnos/agregar" style="margin-top: 20px;">Agregar alumno</button>
+                </div>
+

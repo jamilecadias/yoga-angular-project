@@ -2,8 +2,29 @@
   "usuarios":[
       {"usuario": "jamile@gmail.com", "contrasena": "123456", "esAdmin": true},
       {"usuario": "jonas@gmail.com", "contrasena": "123456", "esAdmin": false}
+  ],
+  "professores":[
+    {"id": 2, "nombre": "Mariana", "apellido": "Martínez", "email":"mariana@gmail.com", "fechaNac": "new Date", "curso": "Hatha Yoga"},
+    {"id": 3, "nombre": "Pedro", "apellido": "Pérez", "email":"pedro@gmail.com", "fechaNac": "new Date", "curso": "Vinyasa Yoga"},
+    {"id": 4, "nombre": "Catarina", "apellido": "Rodríguez", "email":"catarina@gmail.com","fechaNac": "new Date", "curso": "Yoga para embarazadas"},
+    {"id": 5, "nombre": "Lucas", "apellido": "Fernández", "email":"lucas@gmail.com", "fechaNac": "new Date", "curso": "Ashtanga Vinyasa Yoga"}
+  ],
+
+  "alumnos":[
+    {"id": 2, "nombre": "Mariana Martínez", "email":"mariana@gmail.com", "fechaNac": "new Date", "curso": "Hatha Yoga"},
+    {"id": 3, "nombre": "Pedro Pérez", "email":"pedro@gmail.com", "fechaNac": "new Date", "curso": "Vinyasa Yoga"},
+    {"id": 4, "nombre": "Catarina apellido", "email":"catarina@gmail.com","fechaNac": "new Date", "curso": "Yoga para embarazadas"},
+    {"id": 5, "nombre": "Lucas Fernández", "email":"lucas@gmail.com", "fechaNac": "new Date", "curso": "Ashtanga Vinyasa Yoga"}
+  ],
+
+  "cursos":[
+    {"id": 2, "nombre": "Hatha Yoga", "comision": "mañana", "profesor":"Andrea", "fechaInicio": "new Date", "fechaFin": "new Date" },
+    {"id": 3, "nombre": "Vinyasa Yoga", "comision": "tarde", "profesor":"Alejandra", "fechaInicio": "new Date", "fechaFin": "new Date" },
+    {"id": 4, "nombre": "Yoga para embarazadas", "mañana": "Rodríguez", "profesor":"Patricia","fechaInicio": "new Date", "fechaFin": "new Date"},
+    {"id": 5, "nombre": "Ashtanga Vinyasa Yoga", "noche": "Fernández", "profesor":"Juliana", "fechaInicio": "new Date", "fechaFin": "new Date"}
+
   ]
 
-
 }
+
 

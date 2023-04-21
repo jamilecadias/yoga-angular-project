@@ -10,13 +10,9 @@ import { ListaCursosComponent } from './components/lista-cursos/lista-cursos.com
 
 const routes: Routes = [
   { path: '', component: CursosInicioComponent, canActivateChild: [SesionGuard], children: [
- /*  { path: '', canActivateChild: [SesionGuard],children: [ */
     { path: 'listar', component: ListaCursosComponent },
     { path: 'editar', component: EditarCursoComponent, canActivate: [] },
     { path: 'agregar', component: AgregarCursoComponent, canActivate: [] },
-    /* { path: 'editar', component: EditarCursoComponent, canActivate: [AdminGuard] },
-    { path: 'agregar', component: AgregarCursoComponent, canActivate: [AdminGuard] }, */
-
 
   ]}
 ];

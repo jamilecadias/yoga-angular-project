@@ -1,47 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CursoService } from 'src/app/core/services/curso.service';
 import { Alumno } from 'src/app/models/alumno';
-import { Curso } from 'src/app//models/curso';
-
+import { Curso } from 'src/app/models/curso';
+import { AlumnosService } from '../../services/alumnos.service';
+import { agregarAlumnoState } from '../../state/alumno-state.actions';
+import { AlumnoState } from '../../state/alumno-state.reducer';
 
 @Component({
   selector: 'app-agregar-alumno',
   templateUrl: './agregar-alumno.component.html',
   styleUrls: ['./agregar-alumno.component.css']
 })
-
 export class AgregarAlumnoComponent implements OnInit{
   formulario!: FormGroup;
-  alumnos: Alumno[] = [];
-  cursos: Curso[] = []
+  cursos$!: Observable<Curso[]>;
 
   constructor(
     private router: Router,
-   /*  private AlumnoService: AlumnosService, */
-
+    private alumnoService: AlumnosService,
+    private cursos: CursoService,
+    private store: Store<AlumnoState>
   ){}
 
-  ngOnInit(){
+  ngOnInit(): void {
+    this.cursos$ = this.cursos.obtenerCursos();
     this.formulario = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      apellido: new FormControl(),
-      email: new FormControl(),
-      fechaNac: new FormControl(),
-      curso: new FormControl()
+      email: new FormControl(''),
+      fechaNac: new FormControl(''),
+      alumnoActivo: new FormControl(false),
+      nombre: new FormControl(''),
+      curso: new FormControl({})
     })
   }
 
   agregarAlumno(){
-    (this.formulario.value);
     let alumno: Alumno = {
-      id: '1',
+      id: '',
       nombre: this.formulario.value.nombre,
-      apellido: this.formulario.value.apellido,
       email: this.formulario.value.email,
       fechaNac: this.formulario.value.fechaNac,
-      curso: this.formulario.value.curso,
+      alumnoActivo: this.formulario.value.alumnoActivo,
+      curso: this.formulario.value.curso
     }
-    this.alumnos.push(alumno);
+    this.store.dispatch(agregarAlumnoState({ alumno: alumno }));
   }
 }
+
+

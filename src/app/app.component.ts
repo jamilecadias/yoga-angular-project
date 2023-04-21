@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       sesionActiva: false,
       usuarioActivo: undefined
     }
-    // this.sesion.logout(sesionLogout);
+    
     this.router.navigate(['auth/login']);
   }
 }

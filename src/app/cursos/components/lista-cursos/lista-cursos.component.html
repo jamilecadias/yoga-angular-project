@@ -1,3 +1,4 @@
+<h1>Cursos</h1>
 <div class="container">
   <div class="row" *ngIf="cargando$ | async">
       <div class="col-md-12">
@@ -14,21 +15,15 @@
               <img class="card-imagen" mat-card-image src="../assets/foto.jpg" alt="">
               <mat-card-content>
                   <p>Impartido por {{ curso.profesor.nombre }}</p>
-                  <p>{{ curso.inscripcionAbierta }}</p>
+                  <p>{{ curso.inscripcionAbierta ? "Inscripción abierta": "Inscripción abierta"}}</p>
               </mat-card-content>
               <mat-card-actions align="end">
-                <!-- <ng-container *ngIf="sesion$ | async as sesion"> -->
                   <ng-container>
                     <button mat-raised-button color="primary" (click)="abrirDialog(curso)">
                         Editar
                     </button>
                     <button mat-raised-button color="warn" (click)="eliminarCurso(curso)">
                         Eliminar
-                        <!-- <button *ngIf="sesion.usuarioActivo?.esAdmin" mat-raised-button color="primary" (click)="abrirDialog(curso)">
-                          Editar
-                      </button>
-                      <button *ngIf="sesion.usuarioActivo?.esAdmin" mat-button color="warn" (click)="eliminarCurso(curso)">
-                          Eliminar -->
                     </button>
                 </ng-container>
               </mat-card-actions>
