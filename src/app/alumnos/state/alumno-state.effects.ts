@@ -25,7 +25,9 @@ export class AlumnosEffects{
             concatMap(({ alumno }) => {
                 return this.alumnos.agregarAlumno(alumno).pipe(
                     map((alumno: Alumno) => {
-                        this.snackBar.open(`${alumno.nombre} agregado satisfactoriamente`);
+                        this.snackBar.open(`${alumno.nombre} agregado satisfactoriamente`, '', {
+                          duration: 3000
+                        });
                         this.router.navigate(['alumnos/listar']);
                         return cargarAlumnoState();
                     })

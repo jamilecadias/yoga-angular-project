@@ -41,7 +41,9 @@ export class ListaAlumnosComponent implements OnInit{
   }
 
   eliminarAlumno(alumno: Alumno){
-    this.snackBar.open(`${alumno.nombre} eliminado satisfactoriamente`);
+    this.snackBar.open(`${alumno.nombre} eliminado satisfactoriamente`, '', {
+      duration: 3000
+    });
     this.store.dispatch(eliminarAlumnoState({ alumno }));
   }
 
@@ -49,7 +51,9 @@ export class ListaAlumnosComponent implements OnInit{
     this.dialog.open(EditarAlumnoComponent, {
       data: alumno
     }).afterClosed().subscribe((alumno: Alumno) => {
-      this.snackBar.open(`${alumno.nombre} editado satisfactoriamente`)
+      this.snackBar.open(`${alumno.nombre} editado satisfactoriamente`, '', {
+        duration: 3000
+      });
       this.alumnos$ = this.alumnoService.obtenerAlumnos();
     });
   }

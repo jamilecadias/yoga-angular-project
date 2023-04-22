@@ -41,7 +41,9 @@ export class ListaCursosComponent implements OnInit{
   }
 
   eliminarCurso(curso: Curso){
-    this.snackBar.open(`${curso.nombre} eliminado satisfactoriamente`);
+    this.snackBar.open(`${curso.nombre} eliminado satisfactoriamente`, '', {
+      duration: 3000
+    });
     this.store.dispatch(eliminarCursoState({ curso }));
   }
 
@@ -49,7 +51,9 @@ export class ListaCursosComponent implements OnInit{
     this.dialog.open(EditarCursoComponent, {
       data: curso
     }).afterClosed().subscribe((curso: Curso) => {
-      this.snackBar.open(`${curso.nombre} editado satisfactoriamente`)
+      this.snackBar.open(`${curso.nombre} editado satisfactoriamente`, '', {
+        duration: 3000
+      });
       this.cursos$ = this.cursoService.obtenerCursos();
     });
   }
